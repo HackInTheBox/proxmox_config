@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# stop
+#
+# deletes the lock file on a VM ID
+#
+# usage:
+# stop <vm ID>
+#
+# exaample:
+# stop 103
+#
+vmID=$1
+rmvmid() {
+echo "Removing lock file on $vmID..."
+rm /var/lock/qemu-server/lock-$vmID.conf
+if [ $? != 0 ]; then
+   echo "Error!"
+fi
+}
+read -p "Are you sure you want to delete the lock file for $vmID? Y|n: " confirmation
+case $confirmation in
+   Y*|y*)
+      rmvmid
+      echo "Done"
+   ;;
+   *)
+      echo "Exiting"
+   ;;
+esac
+
