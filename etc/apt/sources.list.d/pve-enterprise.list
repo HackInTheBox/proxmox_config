@@ -1,4 +1,0 @@
-#This line commented out by Shawn.  No enterprise subscription.  
-#See https://pve.proxmox.com/wiki/Package_Repositories
-
-# deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
